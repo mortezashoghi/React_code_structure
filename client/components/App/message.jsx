@@ -1,7 +1,7 @@
 import React from 'react';
-
+import Header from './Header'
 const Message=()=>{
-  return <div>message is free </div>
+  return <div><Header/> message is free uuu </div>
 };
 
 export default Message;

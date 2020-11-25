@@ -1,0 +1,15 @@
+body {
+    background-color: cadetblue;
+}
+
+span,
+h3 {
+    min-height: 100px;
+    background-color: blueviolet;
+}
+
+.alone {
+    background-color: brown;
+    font-weight: bold;
+    width: 100%;
+}

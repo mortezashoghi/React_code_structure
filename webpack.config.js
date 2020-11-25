@@ -20,16 +20,27 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: destinationPath,
+        //for hot module replacement add bellow
         publicPath: './'
     },
     module: {
         rules: [{
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: {
-                loader: "babel-loader"
-            }
-        }, ],
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: [
+                    "babel-loader"
+                ],
+            },
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+
+                ],
+            },
+        ],
     },
     resolve: {
         extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
@@ -38,14 +49,21 @@ module.exports = {
             sourcePath
         ],
     },
+
+    // For Hot replacementadd brlow
     plugins: [
+
+        //for log
         new webpack.NamedModulesPlugin(),
+        //for detect changes
         new webpack.HotModuleReplacementPlugin(),
     ],
+    // For Use Dev server this config save output file in memory
     devServer: {
         contentBase: './',
         port: 3030,
         hot: true,
+        //same above public path for hot module replacement
         publicPath: '/',
     }
 };
