@@ -21,7 +21,7 @@ module.exports = {
         filename: 'bundle.js',
         path: destinationPath,
         //for hot module replacement add bellow
-        publicPath: './'
+        publicPath: '/'
     },
     module: {
         rules: [{
@@ -33,13 +33,41 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                exclude: /node_modules/,
+                // exclude: /node_modules/,
                 use: [
                     'style-loader',
                     'css-loader',
 
                 ],
             },
+            {
+                test: /\.scss$/,
+                // exclude: /node_modules/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader',
+
+
+                ],
+            },
+            {
+                test: /\.less$/,
+                // exclude: /node_modules/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'less-loader',
+
+                ],
+            },
+            {
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10000
+                }
+            }
         ],
     },
     resolve: {
@@ -65,5 +93,6 @@ module.exports = {
         hot: true,
         //same above public path for hot module replacement
         publicPath: '/',
+        historyApiFallback: true,
     }
 };
