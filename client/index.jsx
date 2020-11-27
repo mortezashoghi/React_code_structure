@@ -3,34 +3,38 @@ import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import App from './components/App';
 import Header from './components/App/Header';
-import Message from './components/App';
 import history from 'history'; 
 import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link  } from "react-router-dom";
+    useRouteMatch  } from "react-router-dom";
 import routes from './routes';
 import  "jquery/dist/jquery.min.js";
 import'bootstrap/dist/css/bootstrap.min.css';
 import'bootstrap/dist/js/bootstrap.js';
+import {Provider} from 'react-redux';
+import { configureStore } from './store.js';
+import Showmessage from './components/App/showMsg';
 
 // After add router
 
+const store=configureStore();
 const render=()=>{
     ReactDOM.render(
         <AppContainer>
+            <Provider store={store}>
         <Router history={history}>
         <Header/>
-        <div className="container-fluid">
+        <Showmessage/>
+               <div className="container-fluid">
               {routes()}
+        </div>
+        {/* <App/> */}
 
-</div>
-
-            <App/>
        </Router>
-      
-        </AppContainer>,
+       </Provider>
+       </AppContainer>,
         document.getElementById('app')
     );
 };

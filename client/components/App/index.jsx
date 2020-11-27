@@ -8,17 +8,22 @@ import { render } from 'react-dom';
 
 
 const App=({initialAt},props)=>{
-  
+
   return  (<div>
     <div className="footer container clear-top">
-    <span>  first sample <Footer isFromNow value={initialAt} /></span>
+
+    {/* <span>  first sample <Footer isFromNow value={initialAt} btnval="send"/></span> */}
     </div>
+   
           </div>);
 
 
   };
  App.propTypes={
    initialAt:propTypes.string
+  //  children:propTypes.oneOfType([
+  //    propTypes.arrayOf(propTypes.node),
+  //    propTypes.node,]),
   
 };
  App.defaultProps={

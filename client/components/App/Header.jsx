@@ -1,7 +1,14 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-const Header=()=>{
-  return <nav className="navbar navbar-expand-lg navbar-light bg-light">
+import {Link,useRouteMatch} from 'react-router-dom';
+import Message from './message';
+import Footer from './Footer';
+import moment from 'moment';
+import propTypes from 'prop-types';
+import Showmessage from './showMsg';
+
+const Header=({initialAt},props)=>{
+  let { path, url } = useRouteMatch();
+  return <div> <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <a className="navbar-brand" href="#">Navbar</a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
@@ -33,6 +40,22 @@ const Header=()=>{
     </ul>
   </div>
 </nav>
-};
+<div> 
 
+
+  {/* {props.children} */}
+   <span>first sample <Footer isFromNow value={initialAt}  btnval="send"/></span></div>
+
+</div>
+};
+Header.propTypes={
+  initialAt:propTypes.string
+  // children:propTypes.oneOfType([
+  //   propTypes.arrayOf(propTypes.node),
+  //   propTypes.node,]),
+ 
+};
+Header.defaultProps={
+  initialAt:moment('20130301','YYYYMMDD').toISOString(),
+};
 export default Header;

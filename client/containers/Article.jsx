@@ -1,9 +1,22 @@
 import React from 'react';
-const Article=()=>{
-return <div>
-    <h2>You are on Article page </h2>
-</div>;
+import propTypes from 'prop-types';
+import {Link,useRouteMatch,useParams,Route,Switch} from 'react-router-dom';
+import ArticleDt from './ArticleDt';
+
+const Article=props=>{
+    let { path, url } = useRouteMatch();
+   let num=Math.floor((Math.random() * 10) + 1);
+return (<div>
+    <h2>You are on Article page  </h2>
+    <li> <Link className="nav-link" to={`${url}/`+num}>Read more </Link> </li>
+
+        <h3>result is hear</h3>
+<div>
+</div>
+    
+        </div>);
 
 };
+
 
 export default Article;
