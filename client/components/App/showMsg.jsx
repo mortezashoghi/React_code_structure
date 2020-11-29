@@ -3,11 +3,11 @@ import propTypes from 'prop-types';
 import './style.css';
 import  '../../store.js';
 import {connect} from 'react-redux';
-import {disMsg, showMsg} from '../../actions/actions'
+import {disMsg, showMsg} from '../../actions'
 
 const Showmessage=({dispatch,msg})=>{
-    //console.log(msg);
-    dispatch(showMsg());
+    console.log(msg);
+   // dispatch(showMsg());
 };
 Showmessage.propTypes={
     msg:propTypes.string,
@@ -18,4 +18,4 @@ Showmessage.defaultProps={
 };
 
 export default connect(
-    state=>({msg:state.reducer.msg}))(Showmessage);
+    state=>({msg:state.reducer.show_Msg}))(Showmessage);

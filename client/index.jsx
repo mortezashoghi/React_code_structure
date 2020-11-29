@@ -24,18 +24,15 @@ const render=()=>{
     ReactDOM.render(
         <AppContainer>
             <Provider store={store}>
-        <Router history={history}>
-        <Header/>
-        <Showmessage/>
-               <div className="container-fluid">
-              {routes()}
-        </div>
-        {/* <App/> */}
-
-       </Router>
-       </Provider>
+                <Router history={history}>
+                    <Header/>
+                    <div className="container-fluid">
+                        {routes()}
+                    </div>
+               </Router>
+            </Provider>
        </AppContainer>,
-        document.getElementById('app')
+       document.getElementById('app')
     );
 };
 

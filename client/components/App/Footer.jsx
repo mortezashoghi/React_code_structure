@@ -6,23 +6,27 @@ import './style.css';
 import { getStore } from '../../store';
 import { connect } from 'react-redux';
 import Showmessage from './showMsg';
+import {showMsg,disMsg} from '../../actions/';
 
 
-const Footer=({locale,value,isFromNow,btnval,dispatch})=>{
+const Footer=({locale,value,isFromNow,btnval,isdisplay})=>{
     if(!value){
         return false;
     }
-    moment.locale(locale);
+
+    moment.locale(locale); 
     function  hclick() {
         const store=getStore();
-        store.dispatch({type:'SH_MSG',msg:'i am redux'});
+         store.dispatch(showMsg("salam chetori"));
       }
     if(isFromNow){
         return (<div className="alone"><span>react from {moment(value).fromNow()}</span>
-        <button onClick={hclick} className="btn btn-warning"> {btnval}</button></div>);
+        <button onClick={hclick} className="btn btn-warning"> {btnval}</button>
+        <button style={{display:isdisplay}} className="btn btn-warning"> {btnval}</button>
+        </div>);
     }
-          
-    return (<div>
+
+return (<div>
     <hr></hr>
     <button onClick={handleClick} className="btn btn-link kkkk"> {btnval}</button>
         <span>{moment(value)}</span>
@@ -36,12 +40,14 @@ value:propTypes.string.isRequired,
 isFromNow:propTypes.bool.isRequired,
 btnval:propTypes.string.isRequired,
 dispatch:propTypes.func,
+isdisplay:propTypes.string.isRequired,
 };
 
 Footer.defaultProps={
     locale:'en',
     isFromNow:false,
+    isdisplay:'block',
     };
 
 
-export default (connect)(Footer);
+export default connect(state=>({isdisplay:state.reducer.isdisplay}))(Footer);
