@@ -7,9 +7,21 @@ import { getStore } from '../../store';
 import { connect } from 'react-redux';
 import Showmessage from './showMsg';
 import {showMsg,disMsg} from '../../actions/';
+import  Button from './Toolbox/button';
 
 
 const Footer=({locale,value,isFromNow,btnval,isdisplay})=>{
+   
+    const prp={
+        lable:"submit",
+        onclickAct:"sendit",
+        classname:"alert link btn btn-primary"
+       };
+       const prp2={
+        lable:"Send form",
+        onclickAct:"sendit",
+        classname:"alert link btn btn-danger"
+       };
     if(!value){
         return false;
     }
@@ -17,10 +29,14 @@ const Footer=({locale,value,isFromNow,btnval,isdisplay})=>{
     moment.locale(locale); 
     function  hclick() {
         const store=getStore();
-         store.dispatch(showMsg("salam chetori"));
+         store.dispatch(showMsg("check action call"));
       }
     if(isFromNow){
-        return (<div className="alone"><span>react from {moment(value).fromNow()}</span>
+        return (<div className="alone">
+            <Button prs={prp} />
+            <span>react from {moment(value).fromNow()}</span>
+            <Button prs={prp2} />
+
         <button onClick={hclick} className="btn btn-warning"> {btnval}</button>
         <button style={{display:isdisplay}} className="btn btn-warning"> {btnval}</button>
         </div>);

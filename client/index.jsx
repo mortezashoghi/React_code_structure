@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
-import App from './components/App';
+// import App from './components/App';
 import Header from './components/App/Header';
 import history from 'history'; 
 import {
