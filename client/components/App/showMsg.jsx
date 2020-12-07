@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import propTypes from 'prop-types';
 import './style.css';
 import  '../../store.js';
@@ -6,8 +6,8 @@ import {connect} from 'react-redux';
 import {disMsg, showMsg} from '../../actions'
 
 const Showmessage=({dispatch,msg})=>{
-    console.log(msg);
-   // dispatch(showMsg());
+    // console.log(msg);
+   
 };
 Showmessage.propTypes={
     msg:propTypes.string,

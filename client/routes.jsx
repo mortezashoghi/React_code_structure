@@ -1,10 +1,10 @@
-import React from 'react';
+// import React from 'react';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     useParams,
-  useRouteMatch
+    useRouteMatch
   } from "react-router-dom";
 import App from './components/App/index';
 import Home from './containers/Home';
@@ -12,7 +12,6 @@ import Article from './containers/Article';
 import NotExist from './containers/NotExist';
 import ArticleDt from './containers/ArticleDt';
 const routes=()=>{
-  // matchr();
     return (
         <Switch>
             <Route exact path="/" component={Home} />
@@ -22,8 +21,5 @@ const routes=()=>{
             <Route component={NotExist} />
         </Switch>);
 };
-// const matchr=()=>{
-//   let { path, url } = useRouteMatch();
 
-// };
 export default routes;
