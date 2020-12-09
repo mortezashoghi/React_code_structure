@@ -17,7 +17,6 @@ import {Provider} from 'react-redux';
 import { configureStore } from './store.js';
 import Showmessage from './components/App/showMsg';
 
-// After add router
 
 const store=configureStore();
 const render=()=>{
@@ -26,9 +25,9 @@ const render=()=>{
             <Provider store={store}>
                 <Router history={history}>
                     <Header/>
-                    <div className="container-fluid">
+                    {/* <div className="container-fluid"> */}
                         {routes()}
-                    </div>
+                    {/* </div> */}
                </Router>
             </Provider>
        </AppContainer>,

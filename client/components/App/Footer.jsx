@@ -6,22 +6,22 @@ import './style.css';
 import { getStore } from '../../store';
 import { connect } from 'react-redux';
 import Showmessage from './showMsg';
-import {showMsg,disMsg} from '../../actions/';
+import {showMsg,disMsg,alertMsg} from '../../actions/';
 import  Button from './Toolbox/button';
 
 
-const Footer=({locale,value,isFromNow,btnval,isdisplay})=>{
+const Footer=({locale,value,isFromNow,btnval,isdisplay,alertmessage})=>{
    
     const prp={
         lable:"submit",
-        onclickAct:"fetchdata",
-        classname:"alert link btn btn-primary"
+        onclickAct:"showalert",
+        clsname:"alert link btn btn-primary"
        };// import showmessage from './showMsg';
 
        const prp2={
         lable:"Send form",
-        // onclickAct:"fetchdata",
-        classname:"alert link btn btn-danger"
+         onclickAct:"showalert",
+         clsname:"alert link btn btn-danger"
        };
     if(!value){
         return false;
@@ -30,25 +30,42 @@ const Footer=({locale,value,isFromNow,btnval,isdisplay})=>{
     moment.locale(locale); 
     function  hclick() {
         const store=getStore();
-         store.dispatch(showMsg("check action call"));
+         store.dispatch(showMsg("check action call iiiiiiiiiiiiiiiiiiiiiiiiiiii"));
       }
+   
 
-      const fetchdata=()=>{
+      async function fetchdata(){
+
+        const dtas=[];
         fetch('https://jsonplaceholder.typicode.com/todos/1')
-        .then(response => response.json())
-        .then(json => console.log(json));
+            .then(response => response.json())
+                    .then(json=>dtas.push(...json.title)).then(data=>console.log(data));//map(showfetched));
+                    // .then(data=>console.log(data))
+                 
+        // let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+        // let jsondata=await response.json();
+        
+        // let rets=jsondata.map(showfetched);
+      }
+      const showfetched=(data)=>{
+        return <div>
+                <li> {data.title}</li>
+            </div>;
       };
     if(isFromNow){
         return (<div className="alone">
            <div className="row">
            <Button prs={prp} />
            <Button prs={prp2} />
+           <div className="row">
+
+           </div>
                </div> 
             <span>react from {moment(value).fromNow()}</span>
-            
+            <div className="row"><span> {alertmessage} </span></div>
 
         <button onClick={hclick} className="btn btn-warning"> {btnval}</button>
-        <button style={{display:isdisplay}} className="btn btn-warning"> {btnval}</button>
+        <button style={{display:isdisplay}} className="btn btn-warning" onClick={fetchdata}> {btnval}</button>
         </div>);
     }
 
@@ -61,19 +78,21 @@ return (<div>
 
 
 Footer.propTypes={
-locale:propTypes.string.isRequired,
-value:propTypes.string.isRequired,
-isFromNow:propTypes.bool.isRequired,
-btnval:propTypes.string.isRequired,
-dispatch:propTypes.func,
-isdisplay:propTypes.string.isRequired,
+    locale:propTypes.string.isRequired,
+    value:propTypes.string.isRequired,
+    isFromNow:propTypes.bool.isRequired,
+    btnval:propTypes.string.isRequired,
+    dispatch:propTypes.func,
+    isdisplay:propTypes.string.isRequired,
+    alertmessage:propTypes.string,
 };
 
 Footer.defaultProps={
     locale:'en',
     isFromNow:false,
     isdisplay:'block',
+    alertmessage:'',
     };
 
 
-export default connect(state=>({isdisplay:state.reducer.isdisplay}))(Footer);
+export default connect(state=>({isdisplay:state.reducer.isdisplay,alertmessage:state.reducer.msg}))(Footer);

@@ -67,6 +67,7 @@ module.exports = {
         ],
     },
     resolve: {
+        // "react-dom": "@hot-loader/react-dom",
         extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
         modules: [
             path.resolve(__dirname, 'node_modules'),
