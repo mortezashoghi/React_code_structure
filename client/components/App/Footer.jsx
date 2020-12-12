@@ -19,7 +19,7 @@ const Footer=({locale,value,isFromNow,btnval,isdisplay,alertmessage})=>{
        };// import showmessage from './showMsg';
 
        const prp2={
-        lable:"Send form",
+        lable:"Send form hkhk",
          onclickAct:"showalert",
          clsname:"alert link btn btn-danger"
        };
@@ -30,7 +30,7 @@ const Footer=({locale,value,isFromNow,btnval,isdisplay,alertmessage})=>{
     moment.locale(locale); 
     function  hclick() {
         const store=getStore();
-         store.dispatch(showMsg("check action call iiiiiiiiiiiiiiiiiiiiiiiiiiii"));
+         store.dispatch(showMsg("check action call"));
       }
    
 
@@ -61,7 +61,7 @@ const Footer=({locale,value,isFromNow,btnval,isdisplay,alertmessage})=>{
 
            </div>
                </div> 
-            <span>react from {moment(value).fromNow()}</span>
+            <span>react from  {moment(value).fromNow()}</span>
             <div className="row"><span> {alertmessage} </span></div>
 
         <button onClick={hclick} className="btn btn-warning"> {btnval}</button>

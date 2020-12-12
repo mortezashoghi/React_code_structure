@@ -5,8 +5,9 @@ const sourcePath = path.join(__dirname, './client');
 const destinationPath = path.join(__dirname, './dist');
 
 module.exports = {
+    devtool: 'inline-source-map',
     context: sourcePath,
-    devtool: "eval",
+    // devtool: "eval",
     entry: [
         //'./index.jsx'
         //bundle the client for hot reloading and connect to the provided endpoint
@@ -63,11 +64,14 @@ module.exports = {
                 options: {
                     limit: 10000
                 }
-            }
+            },
+
         ],
     },
     resolve: {
-        // "react-dom": "@hot-loader/react-dom",
+        alias: {
+            'react-dom': '@hot-loader/react-dom',
+        },
         extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx'],
         modules: [
             path.resolve(__dirname, 'node_modules'),
@@ -82,6 +86,7 @@ module.exports = {
         new webpack.NamedModulesPlugin(),
         //for detect changes
         new webpack.HotModuleReplacementPlugin(),
+
     ],
     // For Use Dev server this config save output file in memory
     devServer: {

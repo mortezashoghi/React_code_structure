@@ -44,7 +44,7 @@ const Header=({initialAt},props)=>{
 
 
   {/* {props.children} */}
-   <span>first sample <Footer isFromNow value={initialAt}  btnval="send"/></span></div>
+   <span> first sample jhjh: <Footer isFromNow value={initialAt}  btnval="send"/></span></div>
 
 </div>
 };

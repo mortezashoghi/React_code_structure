@@ -6,7 +6,7 @@ import {
     useParams,
     useRouteMatch
   } from "react-router-dom";
-import App from './components/App/index';
+// import App from './components/App/index';
 import Home from './containers/Home';
 import Article from './containers/Article';
 import NotExist from './containers/NotExist';

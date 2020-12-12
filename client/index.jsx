@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 // import App from './components/App';
 import Header from './components/App/Header';
-import history from 'history'; 
+// import { history } from 'history'; 
 import {
-    BrowserRouter as Router,
+    Router,
     Switch,
     Route,
     useRouteMatch  } from "react-router-dom";
+    import { createBrowserHistory } from "history";
+
 import routes from './routes';
 import  "jquery/dist/jquery.min.js";
 import'bootstrap/dist/css/bootstrap.min.css';
@@ -17,7 +19,7 @@ import {Provider} from 'react-redux';
 import { configureStore } from './store.js';
 import Showmessage from './components/App/showMsg';
 
-
+const history = createBrowserHistory();
 const store=configureStore();
 const render=()=>{
     ReactDOM.render(
@@ -25,9 +27,9 @@ const render=()=>{
             <Provider store={store}>
                 <Router history={history}>
                     <Header/>
-                    {/* <div className="container-fluid"> */}
+                    <div className="container-fluid">
                         {routes()}
-                    {/* </div> */}
+                    </div>
                </Router>
             </Provider>
        </AppContainer>,
@@ -37,7 +39,7 @@ const render=()=>{
 
 render();
 if(module.hot){
-    module.hot.accept('./components/App',()=>{
+    module.hot.accept('./components/App/Header',()=>{
         render();
     });
 }
