@@ -35,14 +35,19 @@ const Footer = ({ locale, value, isFromNow, btnval, isdisplay, alertmessage }) =
     async function fetchdata() {
 
         const dtas = [];
+        // new Promise((reslolve,reject)=>{
+        //     if(1=1){
+        //          reslolve("it is ok . everything is ok");
+        //     }
+        //     if(1=0){
+        //         reject("thats incorrect request");
+        //     }
+        // });
         fetch('https://jsonplaceholder.typicode.com/todos/1')
             .then(response => response.json())
             .then(json => dtas.push(...json.title)).then(data => console.log("the data is : " + data));//map(showfetched));
         // .then(data=>console.log(data))
 
-        // let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-        // let jsondata=await response.json();
-        // let rets=jsondata.map(showfetched);
     }
     const showfetched = (data) => {
         return <div>
@@ -60,7 +65,7 @@ const Footer = ({ locale, value, isFromNow, btnval, isdisplay, alertmessage }) =
             <span>react from  {moment(value).fromNow()}</span>
             <div className="row"><span> {alertmessage} </span></div>
             <button onClick={hclick} className="btn btn-warning"> {btnval}</button>
-            <button style={{ display: isdisplay }} className="btn btn-warning" onClick={fetchdata}> {btnval}</button>
+            <button style={{ display: isdisplay }} className="btn btn-danger" onClick={fetchdata}> {btnval}</button>
         </div>);
     }
     return (<div>
