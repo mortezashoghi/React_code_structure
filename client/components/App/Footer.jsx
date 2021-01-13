@@ -19,7 +19,7 @@ const Footer = ({ locale, value, isFromNow, btnval, isdisplay, alertmessage }) =
     };
 
     const prp2 = {
-        lable: "Send form hkhk",
+        lable: "Send form first Time: ",
         onclickAct: "showalert",
         clsname: "alert link btn btn-danger"
     };
@@ -45,7 +45,8 @@ const Footer = ({ locale, value, isFromNow, btnval, isdisplay, alertmessage }) =
         // });
         fetch('https://jsonplaceholder.typicode.com/todos/1')
             .then(response => response.json())
-            .then(json => dtas.push(...json.title)).then(data => console.log("the data is : " + data));//map(showfetched));
+            .then(json => dtas.push(...json.title))
+            .then(data => console.log("the data is : " + data));//map(showfetched));
         // .then(data=>console.log(data))
 
     }
@@ -62,7 +63,7 @@ const Footer = ({ locale, value, isFromNow, btnval, isdisplay, alertmessage }) =
                 <div className="row">
                 </div>
             </div>
-            <span>react from  {moment(value).fromNow()}</span>
+            <span>react from date:::: {moment(value).fromNow()}</span>
             <div className="row"><span> {alertmessage} </span></div>
             <button onClick={hclick} className="btn btn-warning"> {btnval}</button>
             <button style={{ display: isdisplay }} className="btn btn-danger" onClick={fetchdata}> {btnval}</button>

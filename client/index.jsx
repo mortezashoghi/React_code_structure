@@ -18,7 +18,7 @@ import'bootstrap/dist/js/bootstrap.js';
 import {Provider} from 'react-redux';
 import { configureStore } from './store.js';
 import Showmessage from './components/App/showMsg';
-
+import * as serviceworker from './serviceworker';
 const history = createBrowserHistory();
 const store=configureStore();
 const render=()=>{
