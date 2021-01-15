@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link, useRouteMatch,Outlet } from 'react-router-dom';
 import Message from './message';
-import Footer from './Footer';
-import moment from 'moment';
-import propTypes from 'prop-types';
 import Showmessage from './showMsg';
+import './style.css';
 
-const Header = ({ initialAt }, props) => {
+// import './font-awesome.min.css';
+
+const Header = (props) => {
   let { path, url } = useRouteMatch();
   return <div> <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <a className="navbar-brand" href="#">Navbar</a>
@@ -42,20 +42,20 @@ const Header = ({ initialAt }, props) => {
     </div>
   </nav>
     <div>
-
       {/* {props.children} */}
-      <span> first sample: <Footer isFromNow value={initialAt} btnval="send" /></span></div>
+      {/* <span> first sample: <Footer isFromNow value={initialAt} btnval="send" /></span> */}
+      </div>
 
   </div>
 };
 Header.propTypes = {
-  initialAt: propTypes.string
+  // initialAt: propTypes.string
   // children:propTypes.oneOfType([
   //   propTypes.arrayOf(propTypes.node),
   //   propTypes.node,]),
 
 };
 Header.defaultProps = {
-  initialAt: moment('20130301', 'YYYYMMDD').toISOString(),
+  // initialAt: moment('20130301', 'YYYYMMDD').toISOString(),
 };
 export default Header;

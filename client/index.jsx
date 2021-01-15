@@ -8,7 +8,7 @@ import {
     Router,
     Switch,
     Route,
-    useRouteMatch  } from "react-router-dom";
+    useRouteMatch ,Outlet} from "react-router-dom";
     import { createBrowserHistory } from "history";
 
 import routes from './routes';
@@ -19,16 +19,23 @@ import {Provider} from 'react-redux';
 import { configureStore } from './store.js';
 import Showmessage from './components/App/showMsg';
 import * as serviceworker from './serviceworker';
+import Home from './containers/Home';
+import Footer from './components/App/Footer'
 const history = createBrowserHistory();
 const store=configureStore();
 const render=()=>{
+
+    // const {history} = useHistory();
     ReactDOM.render(
         <AppContainer>
             <Provider store={store}>
-                <Router history={history}>
-                    <Header/>
-                    <div className="container-fluid">
-                        {routes()}
+               <Router history={history}>
+                   
+                   <div className="container"> 
+
+                        <Home/>  
+                           {routes()}
+                        <Footer/>
                     </div>
                </Router>
             </Provider>
