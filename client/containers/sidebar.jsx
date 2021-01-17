@@ -13,7 +13,7 @@ const Sidebar=()=>{
         }
     };
     
-    return  <div className="sidenav">
+    return  <div className="sidenav" id="side">
     <a href="#about">درباره</a>
     <a href="#services">سرویس ها</a>
     <a href="#clients">مشتریان</a>

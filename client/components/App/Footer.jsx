@@ -65,7 +65,7 @@ import Button from './Toolbox/button';
     //     <button onClick={handleClick} className="btn btn-link kkkk"> {btnval}</button>
     //     <span>{moment(value)}</span>
     // </div>
-    <div className="container alone"></div>
+    <div className="container alone" id="footer"></div>
     );
 };
 // Footer.propTypes = {

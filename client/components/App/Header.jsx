@@ -1,33 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useRouteMatch,Outlet } from 'react-router-dom';
 import Message from './message';
 import Showmessage from './showMsg';
+import propTypes from 'prop-types';
 import './style.css';
 
 // import './font-awesome.min.css';
 
-const Header = (props) => {
+const Header = (props,clas) => {
   let { path, url } = useRouteMatch();
-  return <div> <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <a className="navbar-brand" href="#">Navbar</a>
+ console.log(clas);
+  return <div> <nav className={window.innerWidth >= 450 ? "navbar navbar-expand-lg navbar-light bg-light" : "navbar fixed-bottom navbar-expand navbar-light bg-light"}>
+    {/* <a className="navbar-brand" href="#">Navbar</a> */}
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarNavDropdown">
       <ul className="navbar-nav">
         <li className="nav-item active">
-          <Link className="nav-link" to="/Home"><span className="sr-only">(current)</span>Home</Link>
+          <Link className="nav-link" to="/Home"><span className="sr-only">(current)</span>صفحه نخست</Link>
+
+        </li>
+        
+        <li className="nav-item">
+          <Link className="nav-link" to="/Article">مطالب </Link>
 
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/about">About</Link>
+          <Link className="nav-link" to="/about">سرویسها</Link>
 
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/Article">Article </Link>
+          <Link className="nav-link" to="/about">درباره</Link>
 
         </li>
-        <li className="nav-item dropdown">
+        {/* <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown link
         </a>
@@ -36,7 +43,7 @@ const Header = (props) => {
             <a className="dropdown-item" href="#">Another action</a>
             <a className="dropdown-item" href="#">Something else here</a>
           </div>
-        </li>
+        </li> */}
       </ul>
 
     </div>
@@ -53,9 +60,11 @@ Header.propTypes = {
   // children:propTypes.oneOfType([
   //   propTypes.arrayOf(propTypes.node),
   //   propTypes.node,]),
+    // clas:propTypes.string,
 
 };
 Header.defaultProps = {
+    clas:"navbar navbar-expand-lg navbar-light bg-light",
   // initialAt: moment('20130301', 'YYYYMMDD').toISOString(),
 };
 export default Header;

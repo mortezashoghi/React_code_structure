@@ -26,6 +26,7 @@ h3 {
 /* margin-top: 50px; */
     /* height: 100%; */
     width: 200px;
+    
     /* position: absolute; */
     z-index: 1;
     /* top: 0; */
@@ -83,4 +84,14 @@ h3 {
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+    
+  }
+  .navbar,.content{
+    direction: rtl;
+    
+  }
+  .content{
+    width: 85%;
+    text-align: right;
+    margin-right: 10px;
   }
