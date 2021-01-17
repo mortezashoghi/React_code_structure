@@ -4,12 +4,22 @@ import Message from './message';
 import Showmessage from './showMsg';
 import propTypes from 'prop-types';
 import './style.css';
-
+import { data } from 'jquery';
+import axios from 'axios';
 // import './font-awesome.min.css';
 
-const Header = (props,clas) => {
+const Header = ({props,clas}) => {
   let { path, url } = useRouteMatch();
- console.log(clas);
+  const [lst,setLst]=useState(null);
+
+const jsontest=async()=>{
+  console.log("dsfsdfdsf");
+  const response=await axios.get('https://jsonplaceholder.typicode.com/todos');
+  setLst(response.data)
+};
+// jsontest();
+
+
   return <div> <nav className={window.innerWidth >= 450 ? "navbar navbar-expand-lg navbar-light bg-light" : "navbar fixed-bottom navbar-expand navbar-light bg-light"}>
     {/* <a className="navbar-brand" href="#">Navbar</a> */}
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,11 +55,21 @@ const Header = (props,clas) => {
           </div>
         </li> */}
       </ul>
-
+       <button className="btn btn-danger" onClick={jsontest}  >click to get</button>
+{
+       lst && lst.map((lst,index)=>{
+      return <li key={index}>{lst.title}</li>
+      }
+    )
+  }
+       <div>
+ 
+    </div>
+       
+        
     </div>
   </nav>
     <div>
-      {/* {props.children} */}
       {/* <span> first sample: <Footer isFromNow value={initialAt} btnval="send" /></span> */}
       </div>
 

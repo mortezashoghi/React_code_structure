@@ -13,19 +13,19 @@ import { useEffect } from 'react';
 const Home=({ initialAt })=>{
 
    const [screensize,setScreensize]=useState('desktop');
-//    const [classNames,setclassNames]=useState("navbar navbar-expand-lg navbar-light bg-light");
+   const [classNames,setclassNames]=useState({name:"ali",age:"20"});
+   console.log(classNames);
 //   useEffect(()=>{
 //     window.addEventListener("resize", resize);
 //  },[]);
-//  const resize=()=>{
-//     if (window.innerWidth <= 450) {
-//       setclassNames("navbar fixed-bottom navbar-expand navbar-light bg-light");
-//     }
-//  };
-//  resize();
+ const resize=()=>{
+    if (window.innerWidth <= 450) {
+      setclassNames("navbar fixed-bottom navbar-expand navbar-light bg-light");
+    }
+ };
 
     return <div>
-        <Header/>
+        <Header clas={classNames}/>
         {/* <Outlet /> */}
         <Sidebar/>
         
