@@ -107,3 +107,14 @@ h3 {
         font-size: 18px;
     }
 }
+
+.navbar,
+.content {
+    direction: rtl;
+}
+
+.content {
+    width: 85%;
+    text-align: right;
+    margin-right: 10px;
+}

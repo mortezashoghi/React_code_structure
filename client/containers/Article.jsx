@@ -6,7 +6,7 @@ import ArticleDt from './ArticleDt';
 const Article=props=>{
     let { path, url } = useRouteMatch();
    let num=Math.floor((Math.random() * 10) + 1);
-return (<div className="articles">
+return (<div className="content">
     <h2>You are on Article page  </h2>
     <li> <Link className="nav-link" to={`${url}/`+num}>Read more </Link> </li>
 
