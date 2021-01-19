@@ -17,3 +17,11 @@ export const alertMsg = (msg = '') => {
         msg
     }
 };
+
+export const fetchData = (data) => {
+
+    return {
+        type: LIST_TEST,
+        payload: data
+    }
+};
