@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect,dispatch } from 'react-redux'
+import {getUserlistRequest} from '../../redux'
 const Content = () => {
     return (         
 <main role="main">
@@ -33,6 +35,12 @@ const Content = () => {
 
 </main>
  );
+mapDispatchToProps=dispatch=>{
+  return{
+    getUserlistRequest:()=>dispatch()
+  }
+}
+
 }
  
-export default Content;        
+export default connect(mapDispatchToProps)(Content);        

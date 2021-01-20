@@ -18,7 +18,7 @@ export const alertMsg = (msg = '') => {
     }
 };
 
-export const fetchData = (data) => {
+export const fetchData = () => {
 
     return {
         type: LIST_TEST,

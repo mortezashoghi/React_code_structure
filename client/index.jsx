@@ -1,26 +1,18 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
-import Header from './components/App/Header';
-import {
-    Router,
-    Switch,
-    Route,
-    useRouteMatch ,Outlet} from "react-router-dom";
-    import { createBrowserHistory } from "history";
-
+import { Router} from "react-router-dom";
+import { createBrowserHistory } from "history";
 import routes from './routes';
 import  "jquery/dist/jquery.min.js";
 import'bootstrap/dist/css/bootstrap.min.css';
 import'bootstrap/dist/js/bootstrap.js';
 import {Provider} from 'react-redux';
-import { configureStore } from './store.js';
-import Showmessage from './components/App/showMsg';
-import * as serviceworker from './serviceworker';
-import Home from './components/App/Home';
-import Footer from './components/App/Footer'
+import { configureStore } from './redux/store';
+
 const history = createBrowserHistory();
 const store=configureStore();
+
 const render=()=>{
 
     // const {history} = useHistory();

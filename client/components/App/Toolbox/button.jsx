@@ -1,8 +1,8 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { getStore } from '../../../store';
+import { getStore } from '../../../redux/store';
 import { connect } from 'react-redux';
-import {showMsg,disMsg,alertMsg} from '../../../actions';
+import {showMsg,disMsg,alertMsg} from '../../../redux/test/actions';
 const Button=({prs})=>{
 
     

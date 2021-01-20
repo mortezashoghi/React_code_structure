@@ -2,10 +2,10 @@ import React from 'react';
 import moment from 'moment';
 import propTypes from 'prop-types';
 // import showmessage from './showMsg';
-import { getStore } from '../../store';
+import { getStore } from '../../redux/store';
 import { connect } from 'react-redux';
 import Showmessage from './showMsg';
-import { showMsg, disMsg, alertMsg } from '../../actions/';
+import { showMsg, disMsg, alertMsg } from '../../redux/test/actions';
 import Button from './Toolbox/button';
 
 
