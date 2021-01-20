@@ -1,16 +1,18 @@
 import { createStore, applyMiddleware } from 'redux';
+
+import thunk from "redux-thunk";
 import { createLogger } from 'redux-logger';
 import reducers from './reducers';
 
 let currentStore = null;
 const middlewares = [];
-
+// remove initialstate and add it to reducer file
 middlewares.push(createLogger());
-export const configureStore = (initialState = {}) => {
+export const configureStore = () => {
     currentStore = createStore(
         reducers,
-        initialState,
-        applyMiddleware(...middlewares)
+        // initialState,
+        applyMiddleware(thunk)
 
     );
     return currentStore;

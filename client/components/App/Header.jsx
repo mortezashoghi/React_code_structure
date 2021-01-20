@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useRouteMatch,Outlet } from 'react-router-dom';
-import Message from './message';
 import Showmessage from './showMsg';
 import propTypes from 'prop-types';
 import './style.css';
@@ -11,15 +10,12 @@ import axios from 'axios';
 const Header = ({props,clas}) => {
   let { path, url } = useRouteMatch();
   const [lst,setLst]=useState(null);
-
+  let lstlist=null;
 const jsontest=async()=>{
-  console.log("dsfsdfdsf");
   const response=await axios.get('https://jsonplaceholder.typicode.com/todos');
   setLst(response.data)
+  
 };
-// jsontest();
-
-
   return <div> <nav className={window.innerWidth >= 450 ? "navbar navbar-expand-lg navbar-light bg-light" : "navbar fixed-bottom navbar-expand navbar-light bg-light"}>
     {/* <a className="navbar-brand" href="#">Navbar</a> */}
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +24,7 @@ const jsontest=async()=>{
     <div className="collapse navbar-collapse" id="navbarNavDropdown">
       <ul className="navbar-nav">
         <li className="nav-item active">
-          <Link className="nav-link" to="/Home"><span className="sr-only">(current)</span>صفحه نخست</Link>
+          <Link className="nav-link" to="/"><span className="sr-only">(current)</span>صفحه نخست</Link>
 
         </li>
         
@@ -55,12 +51,14 @@ const jsontest=async()=>{
           </div>
         </li> */}
       </ul>
-       <button className="btn btn-danger" onClick={jsontest}  >click to get</button>
+       {/* <button className="btn btn-danger" onClick={jsontest}  >click to get</button> */}
 {
+  
        lst && lst.map((lst,index)=>{
       return <li key={index}>{lst.title}</li>
       }
     )
+  
   }
        <div>
  

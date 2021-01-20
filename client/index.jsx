@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
-// import App from './components/App';
 import Header from './components/App/Header';
-// import { history } from 'history'; 
 import {
     Router,
     Switch,
@@ -19,7 +17,7 @@ import {Provider} from 'react-redux';
 import { configureStore } from './store.js';
 import Showmessage from './components/App/showMsg';
 import * as serviceworker from './serviceworker';
-import Home from './containers/Home';
+import Home from './components/App/Home';
 import Footer from './components/App/Footer'
 const history = createBrowserHistory();
 const store=configureStore();
@@ -30,12 +28,10 @@ const render=()=>{
         <AppContainer>
             <Provider store={store}>
                <Router history={history}>
-                   
                    <div className="container"> 
-
-                        <Home/>  
+                        {/* <Home/>   */}
                            {routes()}
-                        <Footer/>
+                        {/* <Footer/> */}
                     </div>
                </Router>
             </Provider>
@@ -46,11 +42,17 @@ const render=()=>{
 
 render();
 if(module.hot){
-    module.hot.accept('./components/App/Header',()=>{
-        render();
-    });
+    module.hot.accept();
 }
 
+
+
+// render();
+// if(module.hot){
+//     module.hot.accept('./components/App/Home',()=>{
+//         render();
+//     });
+// }
 
 
 

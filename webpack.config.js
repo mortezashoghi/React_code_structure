@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const sourcePath = path.join(__dirname, './client');
 const destinationPath = path.join(__dirname, './dist');
 
+
 module.exports = {
     devtool: 'inline-source-map',
     context: sourcePath,
@@ -86,7 +87,7 @@ module.exports = {
         new webpack.NamedModulesPlugin(),
         //for detect changes
         new webpack.HotModuleReplacementPlugin(),
-
+       
     ],
     // For Use Dev server this config save output file in memory
     devServer: {

@@ -118,3 +118,10 @@ h3 {
     text-align: right;
     margin-right: 10px;
 }
+.display-5,.container{
+    direction: rtl;
+    text-align: right;
+}
+.container a{
+    float: left;
+}

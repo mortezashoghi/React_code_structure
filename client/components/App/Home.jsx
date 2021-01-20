@@ -1,11 +1,12 @@
 import React from 'react';
-import Header from '../components/App/Header';
+import Header from './Header';
 import Sidebar from './sidebar';
-import Footer from '../components/App/Footer';
+import Footer from './Footer';
 import moment from 'moment';
 import propTypes from 'prop-types';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Content from './Content';
 // import '../components/App/font-awesome.min.css'
 // import faStyles from '../components/App/font-awesome.min.css'
 
@@ -14,7 +15,6 @@ const Home=({ initialAt })=>{
 
    const [screensize,setScreensize]=useState('desktop');
    const [classNames,setclassNames]=useState({name:"ali",age:"20"});
-   console.log(classNames);
 //   useEffect(()=>{
 //     window.addEventListener("resize", resize);
 //  },[]);
@@ -26,10 +26,8 @@ const Home=({ initialAt })=>{
 
     return <div>
         <Header clas={classNames}/>
-        {/* <Outlet /> */}
-        <Sidebar/>
-        
-        {/* <Footer isFromNow="false" value={initialAt} btnval="send" /> */}
+        {/* <Sidebar/> */}
+         <Content/>
 
 </div>;
 
