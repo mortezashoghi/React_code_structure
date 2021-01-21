@@ -1,26 +1,30 @@
-import { fetchData } from '../test/actions';
-import {GET_ULIST_SUCCESS,GET_ULIST_REQUEST,GET_ULIST_ERROR,GET_UONE} from './actionTypes';
+import {GET_ULIST_SUCCESS,
+    GET_ULIST_REQUEST,
+    GET_ULIST_ERROR,GET_UONE} from './actionTypes';
 
-initialStates={
+const initialState={
     loading:false,
-    data:[],
-    error:''
+    data:["ali","akbar"],
+    error:'',
+    numberof:100
 }
 
-const userReducer=(state=initialStates,action)=>{
+const userReducer=(state=initialState,action)=>{
 switch(action.type){
     case GET_ULIST_REQUEST: return{
         ...state,
-        loading:true
+        loading:true,
+        numberof:state.numberof - 1
     }
     case GET_ULIST_SUCCESS : return{
         ...state,
-        data:fetchData()
+        data:[]
     }
     case GET_ULIST_ERROR:return{
         ...state,
-        error:fetchData()
+        error:''
     }
+    default :return state
 
 } 
 }

@@ -1,8 +1,9 @@
 import {GET_ULIST_SUCCESS,GET_ULIST_REQUEST,GET_ULIST_ERROR,GET_UONE} from './actionTypes';
 
-export const getUserlistRequest = () => {
+export const getUserlistRequest = (numberof) => {
     return { 
         type: GET_ULIST_REQUEST,
+        payload:numberof
            }
 
         }

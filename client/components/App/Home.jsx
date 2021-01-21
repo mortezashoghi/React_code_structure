@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import Content from './Content';
 // import '../components/App/font-awesome.min.css'
 // import faStyles from '../components/App/font-awesome.min.css'
-
+import Users from './Users';
 
 const Home=({ initialAt })=>{
 
@@ -28,7 +28,7 @@ const Home=({ initialAt })=>{
         <Header clas={classNames}/>
         {/* <Sidebar/> */}
          <Content/>
-
+<Users/>
 </div>;
 
 };

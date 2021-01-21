@@ -31,7 +31,8 @@ const render=()=>{
        document.getElementById('app')
     );
 };
-
+// when want to show states in store
+//store.subscribe(()=>{console.log(store.getState())});
 render();
 if(module.hot){
     module.hot.accept();

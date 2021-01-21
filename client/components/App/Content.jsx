@@ -1,7 +1,10 @@
 import React from 'react';
-import { connect,dispatch } from 'react-redux'
+import { propTypes } from 'react-bootstrap/esm/Image';
+import { useDispatch } from 'react-redux'
 import {getUserlistRequest} from '../../redux'
-const Content = () => {
+const Content = (props) => {
+
+  const dispatch=useDispatch();
     return (         
 <main role="main">
 
@@ -9,7 +12,7 @@ const Content = () => {
   <div className="container">
     <h1 className="display-5" >لیست کاربران فعال</h1>
     <p>نخواستی که بفهمی ........ </p>
-    <p><a className="btn btn-primary btn-lg" href="#" role="button">دریافت لیست</a></p>
+    <p><button className="btn btn-primary btn-lg" onClick={()=>dispatch(getUserlistRequest())} >دریافت لیست</button></p>
   </div>
 </div>
 
@@ -35,12 +38,8 @@ const Content = () => {
 
 </main>
  );
-mapDispatchToProps=dispatch=>{
-  return{
-    getUserlistRequest:()=>dispatch()
-  }
-}
+
 
 }
- 
-export default connect(mapDispatchToProps)(Content);        
+
+export default Content;        

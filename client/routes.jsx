@@ -11,6 +11,7 @@ import Home from './components/App/Home';
 import Article from './components/App/Article';
 import NotExist from './components/App/NotExist';
 import ArticleDt from './components/App/ArticleDt';
+import Addtodo from './components/App/Addtodo';
 const routes=()=>{
     return (
         <Switch>
@@ -18,7 +19,7 @@ const routes=()=>{
             {/* <Route path="/Home" component={Home} /> */}
             <Route exact path="/Article" component={Article}/>
             <Route exact path="/Article/:id" component={ArticleDt}/>  
-            
+            <Route exact path="/todo" component={Addtodo}/>              
             <Route component={NotExist} />
         </Switch>);
 };

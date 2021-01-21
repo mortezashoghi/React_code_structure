@@ -33,7 +33,7 @@ const jsontest=async()=>{
 
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/about">سرویسها</Link>
+          <Link className="nav-link" to="/todo">لیست کارها</Link>
 
         </li>
         <li className="nav-item">
