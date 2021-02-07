@@ -1,6 +1,6 @@
 {
-    "short_name": "My_first_react",
-    "name": " First App",
+    "short_name": "mors",
+    "name": "morsApp",
     "icons": [{
         "src": "favicon.ico",
         "sizes": "64x64 32x32 24x24 16x16",

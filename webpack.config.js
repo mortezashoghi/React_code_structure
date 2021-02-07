@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const sourcePath = path.join(__dirname, './client');
+const sourcePath = path.join(__dirname, './src');
 const destinationPath = path.join(__dirname, './dist');
 
 
@@ -87,6 +87,9 @@ module.exports = {
         new webpack.NamedModulesPlugin(),
         //for detect changes
         new webpack.HotModuleReplacementPlugin(),
+        // new webpack.DefinePlugin({
+        //     'process.env.NODE_ENV': JSON.stringify('development')
+        // })
        
     ],
     // For Use Dev server this config save output file in memory
