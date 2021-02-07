@@ -4,7 +4,10 @@
     "description": "for fun",
     "main": "index.js",
     "scripts": {
-        "start": "webpack-dev-server"
+        "start": "webpack-dev-server",
+        "startpwa": "react-app-rewired start",
+        "build": "react-app-rewired build",
+        "test": "react-app-rewired test --env=jsdom"
     },
     "keywords": [
         "react",
@@ -33,6 +36,8 @@
         "popper.js": "^1.16.1",
         "prop-types": "^15.7.2",
         "react": "^16.14.0",
+        "react-app-rewire-workbox": "^2.0.1",
+        "react-app-rewired": "^2.1.8",
         "react-bootstrap": "^1.4.0",
         "react-dom": "^16.14.0",
         "react-fontawesome": "^1.7.1",
@@ -46,7 +51,8 @@
         "style-loader": "^2.0.0",
         "url-loader": "^4.1.1",
         "webpack-cli": "^3.3.12",
-        "webpack-dev-server": "^3.11.0"
+        "webpack-dev-server": "^3.11.0",
+        "workbox-webpack-plugin": "^6.1.0"
     },
     "devDependencies": {
         "@babel/core": "^7.12.9",

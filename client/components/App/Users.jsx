@@ -22,9 +22,9 @@ const dispatch=useDispatch();
 
 
             {
-              data.map(data=>{return( <li> {data}</li> )})
+              data.map((data,index)=>{return( <li key={index}> {data}</li> )})
             }
-            <h1> number is : {numberof}</h1>
+            <h1 > number is : {numberof}</h1>
              
             
         </div>
