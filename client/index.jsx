@@ -9,7 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import { Provider } from "react-redux";
 import { configureStore } from "./redux/store";
-import { register } from "./serviceworker";
+import register from "./serviceworker";
 const history = createBrowserHistory();
 const store = configureStore();
 
@@ -36,7 +36,7 @@ render();
 if (module.hot) {
   module.hot.accept();
 }
-
+register();
 // render();
 // if(module.hot){
 //     module.hot.accept('./components/App/Home',()=>{
